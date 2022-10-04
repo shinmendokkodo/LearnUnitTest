@@ -1,3 +1,3 @@
 # LearnUnitTest
 
-Learning MSTest, NUnut and XUnit Tests
+Learning MSTest, NUnit and XUnit Tests
