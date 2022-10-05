@@ -5,10 +5,17 @@ namespace Testy
     [TestFixture]
     public class CalculatorNUnitTests
     {
+        private Calculator calculator;
+
+        [SetUp]
+        public void Setup()
+        {
+            calculator = new Calculator();
+        }
+
         [Test]
         public void AddTwoIntegers_ReturnInteger()
         {
-            Calculator calculator = new();
             int expectedResult = 3;
             int result = calculator.AddNumbers(1, 2);
             Assert.That(result, Is.EqualTo(expectedResult));
@@ -19,7 +26,6 @@ namespace Testy
         [TestCase(5.49, 10.59)]
         public void AddTwoDoubles_ReturnDouble(double a, double b)
         {
-            Calculator calculator = new();
             double expectedResult = 15.9;
             double result = calculator.AddNumbersDouble(a, b);
             Assert.That(result, Is.EqualTo(expectedResult).Within(0.2));
@@ -31,7 +37,6 @@ namespace Testy
         [Test]
         public void CheckIfNumberIsOdd_InputEven_ReturnFalse()
         {
-            Calculator calculator = new();
             bool isOdd = calculator.IsOddNumber(4);
             Assert.That(isOdd, Is.False);
         }
@@ -62,7 +67,6 @@ namespace Testy
         [TestCase(13)]
         public void CheckIfNumberIsOdd_InputOdd_ReturnTrue(int input)
         {
-            Calculator calculator = new();
             bool isOdd = calculator.IsOddNumber(input);
             Assert.That(isOdd, Is.EqualTo(true));
             /*
@@ -77,7 +81,6 @@ namespace Testy
         [TestCase(928, ExpectedResult = false)]
         public bool CheckIfNumberIsOdd_InputOddAndEven_ReturnTrueAndFalse(int input)
         {
-            Calculator calculator = new();
             return calculator.IsOddNumber(input);
         }
     }
